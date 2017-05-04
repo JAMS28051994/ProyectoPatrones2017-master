@@ -23,5 +23,6 @@ public interface IGame {
     public abstract void drawBoard();
     public abstract void addPice();
      public void movePice(int pPos1, int pPos2);
+     public void movePice(String pPos);
     
 }

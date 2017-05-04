@@ -12,6 +12,7 @@ import games.Interfaces.IGame;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 /**
@@ -28,7 +29,10 @@ public class MindGames {
         
        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
        IGame newGame;
-       String opt, optSub = null;
+       String opt, optSub = null, picePostA, picePostB;
+       Scanner s;
+        s = new Scanner(System.in);
+       int picePost1, picePost2;
        
         do{
          System.out.println("Chose a Game to play");
@@ -51,9 +55,16 @@ public class MindGames {
                                  newGame.createGame();
                                  System.out.println("Position for each pice of the board for Chess");
                                  newGame.drawBoard();
+                                 System.out.println("Pices added on the board to play");
                                  newGame.addPice();
-                                 newGame.printGame();
-                                 newGame.movePice(0, 2);
+                                 
+                                 System.out.println("Enter position of pice to move ");
+                                 picePostA=in.readLine();
+                                 //picePost1 =Integer.parseInt(s.nextLine());
+                                 System.out.println("Enter position to move pice ");
+                                 picePostB=in.readLine();
+                                 //picePost2 = Integer.parseInt(s.nextLine());                                 
+                                 newGame.movePice(picePostB);
                                  newGame.printGame();                                
                             case "2":
                                  

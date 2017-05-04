@@ -19,6 +19,7 @@ public class Chess implements IGame{
         Board chessBoard;
         IPiece pawnA = new Pawn();
         String posPiece [][];
+        int mPos1, mPos2;
     
     @Override
     public void createGame() {
@@ -45,15 +46,14 @@ public class Chess implements IGame{
         
         System.out.println("Pawn is on Position " + posPiece[0][1] + "?");
         System.out.println(chessBoard.getSpot(0, 1).isOccupied());
-        System.out.println("Move pawn to " + posPiece[0][2]);        
-        System.out.println(chessBoard.getSpot(0, 2).isOccupied());
-        System.out.println(chessBoard.getSpot(0, 1).isOccupied());
+        System.out.println("Move pawn to " + posPiece[this.mPos1][this.mPos2]);
+        
     }    
 
     @Override
     public void drawBoard() {        
         
-        String mLetters[] = {"|a","b","c","d","e","f","g","h"};
+        String mLetters[] = {"a","b","c","d","e","f","g","h"};
         posPiece = new String [8][8];
         int k=0;
         for(int i=1 ; i<9; i++){
@@ -64,8 +64,7 @@ public class Chess implements IGame{
             }
             k++;
             System.out.println("");
-        }
-        //System.out.println(pawn.isAvailable());
+        }        
     }
 
     @Override
@@ -84,6 +83,23 @@ public class Chess implements IGame{
     @Override
     public void movePice(int pPos1, int pPos2){            
         pawnA.move(chessBoard, pawnA,pPos1, pPos2);
+        this.mPos1=pPos1;
+        this.mPos2=pPos2;
+
+        chessBoard.getSpot(0, 1).releaseSpot();
+    }
+        @Override
+     public void movePice(String pPos){            
+        
+        for(int i=0 ; i<8; i++){
+            for(int j=0; j<8; j++){                
+               if (posPiece[i][j].equals(pPos)){
+                   this.mPos1=i;
+                   this.mPos2=j;                   
+               }
+            }
+        }
+        pawnA.move(chessBoard, pawnA,mPos1, mPos2);
         chessBoard.getSpot(0, 1).releaseSpot();
     }
     
