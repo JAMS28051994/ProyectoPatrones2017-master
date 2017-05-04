@@ -21,17 +21,32 @@ public class MindGames {
      */
     public static void main(String[] args) {        
         
-        IGame newGame;
+         IGame newGame;
         
         //Chess Game
         newGame = new Chess();
+        newGame.createGame();
+        System.out.println("Position for each pice of the board for Chess");
         newGame.drawBoard();
+        newGame.addPice();
+        newGame.printGame();
+        newGame.movePice(0, 2);
+        newGame.printGame();
+        
+       /* for(int i=0; i<newGame.length; i++){
+            for(int j=0; j<newGame.length; j++){
+                System.out.println(newGame[i][j]);
+            }
+        }*/       
+        
+        //
         //Checkers Game
         newGame = new Checkers();
         newGame.drawBoard();
         //Go Game
         newGame = new Go();
         newGame.drawBoard();
+    
     }
     
 }
