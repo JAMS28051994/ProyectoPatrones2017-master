@@ -15,7 +15,7 @@ import games.Board.Board;
 public class Rock implements IPiece{
 
     @Override
-    public void move(int pLocation, int pDestination) {
+    public void move(Board board, IPiece pPiece,int pLocation, int pDestination) {
         
     }
 

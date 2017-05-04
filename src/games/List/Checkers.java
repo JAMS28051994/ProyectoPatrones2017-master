@@ -48,5 +48,10 @@ public class Checkers implements IGame{
     public void addPice() {
         
     }
+
+    @Override
+    public void movePice(int pPos1, int pPos2) {
+        
+    }
         
 }
